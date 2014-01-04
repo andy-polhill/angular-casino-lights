@@ -1,0 +1,49 @@
+.A {
+	position:relative;
+	i {
+		position:absolute;
+		color:white;
+		font-size:7%;
+	}
+
+}
+.A::after {
+	content:"A";
+}
+/*
+	:nth-child(1) {
+		top:74%;
+		left:7%;
+	}
+	:nth-child(2) {
+		top:74%;
+		left:83%;
+	}
+	//Horizontal Bar
+	:nth-child(3) {
+		top:59%;
+		left:18%;
+	}
+	:nth-child(4) {
+		top:59%;
+		left:36%;
+	}
+	:nth-child(5) {
+		top:59%;
+		left:54%;
+	}
+	:nth-child(6) {
+		top:59%;
+		left:72%;
+	}
+	//End Horizontal Bar
+
+	//Top Row
+	:nth-child(7) {
+		top:39%;
+		left:28%;
+	}
+	:nth-child(8) {
+		top:39%;
+		left:60%;
+	}*/

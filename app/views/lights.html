@@ -1,7 +1,41 @@
 <div class="jumbotron">
-	<h1 class="text-center">Andrew Polhill</h1>
-	<p class="text-center">
-		<i class="glyphicon glyphicon-certificate"></i>
-		<i class="glyphicon glyphicon-certificate"></i>
-	</p>
+
+	<h1 class="neon text-center" ng-init="lights = [	{top:'74%', left:'7%'},
+																										{top:'74%', left:'83%'}]">
+		<span class='A'>
+			<i ng-repeat="light in lights | vertical:frame" 
+					class="glyphicon glyphicon-certificate" ng-style="light">
+			</i>
+		</span>
+	</h1>
+
+	<form>
+		<label for="brightness">Brightness</label>
+		<input name="brightness" ng-model="brightness" type="range" value="20" min="0" max="100" />
+
+		<label for="power">Power</label>
+		<input name="power" ng-true-value="light-on" ng-false-value="light-off" ng-model="power" type="checkbox" />
+
+		<label for="animation">Animation</label>
+		<select name="animation" ng-model="animation" ng-change="changeAnimation()">
+			<option>Mixed</option>
+			<option>Horizontal</option>
+			<option>Vertical</option>
+			<option>Radial</option>
+		</select>
+	</form>
+
 </div>
+
+
+<!--
+				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
+				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
+
+				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
+				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
+				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
+				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
+
+				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
+				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>-->
