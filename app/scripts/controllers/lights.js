@@ -1,23 +1,34 @@
 angular.module('portfolioApp').
-	controller('LightsCtrl', function ($scope, $interval) {
+	controller('LightsCtrl', function ($scope, $timeout, $filter) {
 
-		var maxFrame = 20;
+		$scope.maxFrame = 15;
+		$scope.brightness = 0;
+		$scope.speed = 200;
+		$scope.power = true;
+		$scope.frame = 0;
+		$scope.animation = 'random';
 
-		$scope.brightness = 0,
-		$scope.speed = 0,
-		$scope.power = 'on',
-		$scope.frame = 1;
-
-		$scope.changeAnimation = function() {
-			console.log(this.animation);
+		$scope.toggle = function() {
+			if(!$scope.power) { //stop it
+				$timeout.cancel($scope.timeout)
+			} else { //start it
+				$scope.timeout = $timeout(frame, $scope.speed);
+			}
 		}
 
-		$scope.animation = $interval(function() {
+		function frame() {
 			$scope.frame++;
-			if($scope.frame > maxFrame) {
+
+			$filter($scope.animation)($scope.lights, $scope.frame, $scope.maxFrame);
+
+			if($scope.frame > $scope.maxFrame) {
 				$scope.frame = 0;
 			}
-			console.log($scope.frame);
-		}, 500);
+			$scope.timeout = $timeout(frame, $scope.speed);
+		}
+
+		if($scope.power) { //start it up
+			$scope.timeout = $timeout(frame, $scope.speed);
+		}
 	}
 );

@@ -1,7 +1,9 @@
 'use strict';
 
+angular.module('lightFilters', []);
+
 var portfolioApp = angular.module('portfolioApp', [
-  'portfolioFilters',
+  'lightFilters',
   'ngRoute'
 ])
 

@@ -1,41 +1,30 @@
-<div class="jumbotron">
-
-	<h1 class="neon text-center" ng-init="lights = [	{top:'74%', left:'7%'},
-																										{top:'74%', left:'83%'}]">
-		<span class='A'>
-			<i ng-repeat="light in lights | vertical:frame" 
-					class="glyphicon glyphicon-certificate" ng-style="light">
-			</i>
-		</span>
+<div class="row text-center">
+	<h1 class="neon" ng-init="lights = [	{pos: {bottom:'18%', left:'0%'}, power: 'on'},
+																				{pos: {bottom:'28%', left:'0%'}, power: 'on'}, 
+																				{pos: {bottom:'38%', left:'0%'}, power: 'on'}, 
+																				{pos: {bottom:'48%', left:'0%'}, power: 'on'}, 
+																				{pos: {bottom:'58%', left:'0%'}, power: 'off'}, 
+																				{pos: {bottom:'68%', left:'0%'}, power: 'on'}, 
+																				{pos: {bottom:'78%', left:'0%'}, power: 'on'}]">
+		CHOPPER
+		<i ng-repeat="light in lights" class="light" id="light-{{$index}}" ng-class="light.power" ng-style="light.pos">
+		</i>
+		<!--| vertical:frame-->
+		<!--grid-->
+		<hr class="one">
+		<hr class="two">
 	</h1>
-
-	<form>
-		<label for="brightness">Brightness</label>
-		<input name="brightness" ng-model="brightness" type="range" value="20" min="0" max="100" />
-
-		<label for="power">Power</label>
-		<input name="power" ng-true-value="light-on" ng-false-value="light-off" ng-model="power" type="checkbox" />
-
-		<label for="animation">Animation</label>
-		<select name="animation" ng-model="animation" ng-change="changeAnimation()">
-			<option>Mixed</option>
-			<option>Horizontal</option>
-			<option>Vertical</option>
-			<option>Radial</option>
-		</select>
-	</form>
-
 </div>
+<form class="row text-center">
+	<label for="speed">Speed</label>
+	<input name="speed" ng-model="speed" type="range" min="100" max="500" />
 
+	<label for="power">Power</label>
+	<input name="power" ng-change="toggle()" ng-model="power" type="checkbox" />
 
-<!--
-				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
-				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
-
-				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
-				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
-				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
-				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
-
-				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>
-				<i class="{{ power }} glyphicon glyphicon-certificate" style="opacity:{{ brightness / 100 }}"></i>-->
+	<label for="animation">Animation</label>
+	<select name="animation" ng-model="animation">
+		<option value="random">Random</option>
+		<option value="vertical">Vertical</option>
+	</select>
+</form>
