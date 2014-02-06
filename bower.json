@@ -16,7 +16,6 @@
     "angular-scenario": "~1.0.7"
   },
   "resolutions": {
-    "angular": "1.2.6",
-    "bootstrap-sass": "3.0.2"
+    "angular": "1.2.6"
   }
 }

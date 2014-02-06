@@ -1,12 +1,14 @@
 angular.module('portfolioApp').
-	controller('LightsCtrl', function ($scope, $timeout, $filter) {
+	controller('LightsCtrl', function ($scope, $http, $timeout, $filter) {
 
-		$scope.maxFrame = 15;
-		$scope.brightness = 0;
-		$scope.speed = 200;
-		$scope.power = true;
-		$scope.frame = 0;
-		$scope.animation = 'random';
+		var maxFrame = 16,
+				frame = 0;
+
+		$scope.speed = 200; // animation interval
+		$scope.power = true; // on/off switch
+		$scope.animation = 'vertical'; //current animation
+
+		$scope.word = 'ANDY'.split('');
 
 		$scope.toggle = function() {
 			if(!$scope.power) { //stop it
@@ -16,19 +18,27 @@ angular.module('portfolioApp').
 			}
 		}
 
-		function frame() {
-			$scope.frame++;
+		function animate() {
+			frame++;
 
-			$filter($scope.animation)($scope.lights, $scope.frame, $scope.maxFrame);
+			$filter($scope.animation)($scope.lights, $scope.allLights, frame, maxFrame);
 
-			if($scope.frame > $scope.maxFrame) {
-				$scope.frame = 0;
+			if(frame > maxFrame) {
+				frame = 0;
 			}
-			$scope.timeout = $timeout(frame, $scope.speed);
+			$scope.timeout = $timeout(animate, $scope.speed);
 		}
 
-		if($scope.power) { //start it up
-			$scope.timeout = $timeout(frame, $scope.speed);
-		}
+		$http.get('data/Bitter.json').success(function(lights) {
+
+			$scope.lights = lights;
+
+			$scope.allLights = _.flatten(_.values($scope.lights), true);
+
+			if($scope.power) { //start it up
+				$scope.timeout = $timeout(animate, $scope.speed);
+			}
+
+		});
 	}
 );

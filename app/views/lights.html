@@ -1,18 +1,10 @@
 <div class="row text-center">
-	<h1 class="neon" ng-init="lights = [	{pos: {bottom:'18%', left:'0%'}, power: 'on'},
-																				{pos: {bottom:'28%', left:'0%'}, power: 'on'}, 
-																				{pos: {bottom:'38%', left:'0%'}, power: 'on'}, 
-																				{pos: {bottom:'48%', left:'0%'}, power: 'on'}, 
-																				{pos: {bottom:'58%', left:'0%'}, power: 'off'}, 
-																				{pos: {bottom:'68%', left:'0%'}, power: 'on'}, 
-																				{pos: {bottom:'78%', left:'0%'}, power: 'on'}]">
-		CHOPPER
-		<i ng-repeat="light in lights" class="light" id="light-{{$index}}" ng-class="light.power" ng-style="light.pos">
-		</i>
-		<!--| vertical:frame-->
-		<!--grid-->
-		<hr class="one">
-		<hr class="two">
+	<h1 class="neon">
+		<span ng-repeat="letter in word track by $index">
+			{{letter}}
+			<i ng-repeat="light in lights[letter]" class="light" ng-class="light.power" ng-style="{{light}}">
+			</i>
+		</span>
 	</h1>
 </div>
 <form class="row text-center">
