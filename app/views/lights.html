@@ -2,21 +2,19 @@
 	<h1 class="neon">
 		<span ng-repeat="letter in word track by $index">
 			{{letter}}
-			<i ng-repeat="light in lights[letter]" class="light" ng-class="light.power" ng-style="{{light}}">
+			<i ng-repeat="light in lights[letter]" class="light" ng-class="light.power" ng-style="light.pos">
 			</i>
 		</span>
 	</h1>
 </div>
 <form class="row text-center">
 	<label for="speed">Speed</label>
-	<input name="speed" ng-model="speed" type="range" min="100" max="500" />
+	<input name="speed" ng-model="speed" type="range" min="100" max="{{maxSpeed}}" />
 
 	<label for="power">Power</label>
 	<input name="power" ng-change="toggle()" ng-model="power" type="checkbox" />
 
 	<label for="animation">Animation</label>
-	<select name="animation" ng-model="animation">
-		<option value="random">Random</option>
-		<option value="vertical">Vertical</option>
+	<select name="animation" ng-model="animation" ng-options="filter for filter in filters">
 	</select>
 </form>
