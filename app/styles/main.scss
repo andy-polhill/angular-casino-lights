@@ -6,13 +6,16 @@ $iconFontPath: "/bower_components/bootstrap-sass/fonts/";
 $body-bg:#333;
 $text-color:#dec085;
 $text-border:#d78965;
+$header-font-size:160px;
+$light-size:$header-font-size * 0.05;
 
 @import "bootstrap-sass/lib/bootstrap";
 
 .light {
+  position:absolute;
+  height:$light-size;
+  width:$light-size;
   border-radius: 50%;
-  height:9px;
-  width:9px;
   border:solid 1px #ECDBB9;
   background-color:transparent;
   box-shadow:
@@ -31,7 +34,7 @@ $text-border:#d78965;
 }
 
 h1.neon { 
-  font-size:160px;
+  font-size:$header-font-size;
   font-family: 'Bitter', serif;
   position:relative;
   display:inline-block;
@@ -48,19 +51,4 @@ h1.neon {
     position:relative;
   }
 
-  hr {
-    margin:0;
-    padding:0;
-    position:absolute;
-    color:white;
-    width:100%;
-  }
-  hr.one {bottom:18%;}
-  hr.two {bottom:28%;}
-
-  i {
-    position:absolute;
-    color:white;
-    font-size:7%;
-  }
 }
