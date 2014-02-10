@@ -1,0 +1,44 @@
+{
+  "A":[
+    {"bottom":"16%", "left":"5%"},
+    {"bottom":"16%", "left":"17%"},
+    {"bottom":"16%", "left":"29%"},
+    {"bottom":"16%", "left":"60%"},
+    {"bottom":"16%", "left":"73%"},
+    {"bottom":"16%", "left":"86%"},
+
+    {"bottom":"24%", "left":"18%"},
+    {"bottom":"24%", "left":"72%"},
+
+    {"bottom":"32%", "left":"23%"},
+    {"bottom":"32%", "left":"34%"},
+    {"bottom":"32%", "left":"45%"},
+    {"bottom":"32%", "left":"56%"},
+    {"bottom":"32%", "left":"68%"},
+
+    {"bottom":"40%", "left":"27%"},
+    {"bottom":"40%", "left":"64%"},
+
+    {"bottom":"48%", "left":"31%"},
+    {"bottom":"48%", "left":"61%"},
+
+    {"bottom":"56%", "left":"35%"},
+    {"bottom":"56%", "left":"57%"},
+
+    {"bottom":"63%", "left":"38%"},
+    {"bottom":"63%", "left":"54%"},
+
+    {"bottom":"70%", "left":"41%"},
+    {"bottom":"70%", "left":"50%"}
+  ],
+  "B":[
+    {"bottom":"70%", "left":"41%"}  
+  ],
+  "N":[
+    {"bottom":"16%", "left":"5%"},
+    {"bottom":"16%", "left":"17%"},
+    {"bottom":"16%", "left":"29%"}
+  ],
+  "D":[],
+  "Y":[]
+}
