@@ -1,4 +1,6 @@
-angular.module('lightFilters').
+'use strict';
+
+angular.module('casino.filters').
 	filter('random', function() {
 		return function(lights, allLights, frame, maxFrame) {
 			var filtered = [];
