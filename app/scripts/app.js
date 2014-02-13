@@ -11,7 +11,7 @@ angular.module('casino.filters', []).config(function($filterProvider, $provide) 
       allFilters.push(name);
       // call the original function
       registerFn(name, fn);
-  }
+  };
 
   // register a value to retrieve the filters
   $provide.value('filters', allFilters);
