@@ -2,15 +2,15 @@
 
 angular.module('casino.filters', []).config(function($filterProvider, $provide) {
   // keep the original register fucntion
-  var registerFn = $filterProvider.register
-  ,   allFilters = [];
+  var registerFn = $filterProvider.register,
+      allFilters = [];
 
   // replace the register function with our own implementation
   $filterProvider.register = function(name, fn){
-      // save the name in the array
-      allFilters.push(name);
-      // call the original function
-      registerFn(name, fn);
+    // save the name in the array
+    allFilters.push(name);
+    // call the original function
+    registerFn(name, fn);
   };
 
   // register a value to retrieve the filters
@@ -29,7 +29,7 @@ angular.module('casino', [
   function($routeProvider) {
     $routeProvider
     .when('/', {
-      templateUrl: 'views/lights.html', 
+      templateUrl: 'views/lights.html',
       controller: 'LightsCtrl'
     })
     .otherwise({
