@@ -1,5 +1,4 @@
 $icon-font-path: "/bower_components/bootstrap-sass/fonts/";
-$iconFontPath: "/bower_components/bootstrap-sass/fonts/";
 
 @import "bootstrap-sass/lib/variables";
 
@@ -9,7 +8,34 @@ $text-border:#d78965;
 $header-font-size:160px;
 $light-size:$header-font-size * 0.05;
 
+$border-radius-small:10px;
+$border-radius-base:10px;
+
+$panel-bg:lighten($body-bg, 10%);
+$panel-default-border:lighten($body-bg, 15%);
+
+$text-shadow-1:darken($text-border, 30%);
+$text-shadow-2:darken($text-border, 40%);
+
 @import "bootstrap-sass/lib/bootstrap";
+
+/* Bootstrap Ovverrides */
+
+.panel-body {
+  padding: 10px;
+}
+
+.form-group {
+  padding: 0 5px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+/* End Bootstrap Ovverrides */
+
+/* Casino Styling */
 
 .light {
   position:absolute;
@@ -34,21 +60,58 @@ $light-size:$header-font-size * 0.05;
 }
 
 h1.neon { 
+  margin-bottom: $line-height-computed;
   font-size:$header-font-size;
   font-family: 'Bitter', serif;
   position:relative;
   display:inline-block;
-
-  -webkit-text-fill-color: $text-color;
-  -webkit-text-stroke-color: $text-border;
-  -webkit-text-stroke-width: 5px;
-  text-fill-color: $text-color;
-  text-stroke-color: $text-border;
-  text-stroke-width: 5px;
+  color: $text-color;
+  background: transparent;
+  z-index: 0;
 
   span {
     display: inline-block;
     position:relative;
+    padding: 0 3px;
   }
 
+  span:before {
+    content: attr(data-content);
+    position: absolute;
+    padding: 0 3px;
+    left: 0;
+    z-index: -1;
+    text-shadow:
+      1px 1px 0px #d78965,
+      -1px -1px 0px #d78965,
+      -1px 1px 0px #d78965,
+      1px -1px 0px #d78965,
+
+      2px 2px 0px #d78965,
+      -2px -2px 0px #d78965,
+      2px -2px 0px #d78965,
+      -2px 2px 0px #d78965,
+
+      3px 3px 0px #d78965,
+      -3px -3px 0px #d78965,
+      -3px 3px 0px #d78965,
+      3px -3px 0px #d78965,
+
+      5px -1px 1px $text-shadow-1, 
+      5px 2px 1px $text-shadow-1, 
+      5px 4px 1px $text-shadow-1,
+      5px 6px 1px $text-shadow-1,
+      -2px 6px 1px $text-shadow-1,
+
+      6px 0px 1px $text-shadow-2, 
+      6px 3px 1px $text-shadow-2, 
+      6px 5px 1px $text-shadow-2,
+      6px 7px 1px $text-shadow-2,
+      -2px 7px 1px $text-shadow-2,
+
+      -3px 8px 5px black,
+      7px 8px 5px black;
+  }
 }
+
+/* End Casino Styling */

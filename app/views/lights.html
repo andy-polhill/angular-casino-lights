@@ -1,20 +1,32 @@
 <div class="row text-center">
 	<h1 class="neon">
-		<span ng-repeat="letter in word track by $index">
+		<span ng-repeat="letter in word track by $index" data-content="{{letter}}">
 			{{letter}}
 			<i ng-repeat="light in lights[letter]" class="light" ng-class="light.power" ng-style="light.pos">
 			</i>
 		</span>
 	</h1>
 </div>
-<form class="row text-center">
-	<label for="speed">Speed</label>
-	<input name="speed" ng-model="speed" type="range" min="100" max="{{maxSpeed}}" />
 
-	<label for="power">Power</label>
-	<input name="power" ng-change="toggle()" ng-model="power" type="checkbox" />
-
-	<label for="animation">Animation</label>
-	<select name="animation" ng-model="animation" ng-options="filter for filter in filters">
-	</select>
-</form>
+<div class="col-xs-6 col-xs-offset-3">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+		  <form class="form-inline row text-center" role="form">
+			  <div class="form-group">
+					<label for="speed" class="sr-only">Speed</label>
+					<input name="speed" ng-model="speed.current" type="range" min="{{speed.min}}" max="{{speed.max}}" />
+			  </div>
+			  <div class="form-group">
+					<label for="animation" class="sr-only">Animation</label>
+					<select name="animation" ng-model="animation" class="form-control input-sm" ng-options="filter for filter in filters">
+					</select>
+			  </div>
+			  <div class="form-group">
+					<button name="power" ng-click="toggle()" ng-model="power" ng-class="{active: power}" class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-play" ng-class="{'glyphicon-pause': power}"></span>
+					</button>
+			  </div>
+			</form>
+		</div>
+	</div>
+</div>
