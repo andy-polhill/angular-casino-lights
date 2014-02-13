@@ -4,21 +4,17 @@ angular.module('casino').
 	controller('LightsCtrl', function ($scope, _, $http, $timeout, $filter, filters) {
 
 		var frame = 0, //start at frame 0
-				font = 'Bitter'; //this our font, a data file of light locations is needed
+				font = 'Bitter'; //a data file of light locations is needed
 
 		$scope.word = 'ANDY'.split(''); //TODO: this would be better in the template
-		$scope.speed = 200; // animation interval
-		$scope.maxSpeed = 500;
 		$scope.power = true; // on/off switch
 		$scope.animation = 'vertical'; //default animation
 		$scope.filters = filters;
 
-		$scope.toggle = function() {
-			if(!$scope.power) { //stop it
-				$scope.stop();
-			} else { //start it
-				$scope.start();
-			}
+		$scope.speed = {
+			min: 10,
+			max: 30,
+			current: 10
 		};
 
 		//Fetch the font data, parse it and start
@@ -27,17 +23,43 @@ angular.module('casino').
 			$scope.start();
 		});
 
+		$scope.toggle = function() {
+
+			$scope.power = ($scope.power) ? false : true; //invert
+
+			if(!$scope.power) { //stop it
+				$scope.stop();
+			} else { //start it
+				$scope.start();
+			}
+		};
+
 		$scope.animate = function() {
-			frame++;
-			$filter($scope.animation)($scope.lights, $scope.allLights, frame);
-			$scope.timeout = $timeout($scope.animate, $scope.speed);
+			$filter($scope.animation)($scope.lights, $scope.allLights, frame++);
+			$scope.start();
+		};
+
+		//start it up
+		$scope.start = function() {
+			if($scope.power) {
+				//speed is inverted. small timeout out = faster animation.
+				$scope.timeout = $timeout($scope.animate, 
+						($scope.speed.max + $scope.speed.min) - $scope.speed.current);
+			}
+		};
+
+		//stop it
+		$scope.stop = function() {
+			if(!$scope.power) {
+				$timeout.cancel($scope.timeout);
+			}
 		};
 
 		//transform the data into a more suitable format
 		$scope.parse = function(letters) {
 			var lights = {};
 
-			_.each(_.keys(letters), function(letter) {
+			_.each($scope.word, function(letter) {
 				lights[letter] = [];
 				_.each(letters[letter], function(light) {
 					lights[letter].push({'pos': light});
@@ -48,20 +70,6 @@ angular.module('casino').
 
 			//create a flattened version of the lights, useful for some filters
 			$scope.allLights = _.flatten(_.values(lights), true);
-		};
-
-		//start it up
-		$scope.start = function() {
-			if($scope.power) {
-				$scope.timeout = $timeout($scope.animate, $scope.speed);
-			}			
-		};
-
-		//stop it
-		$scope.stop = function() {
-			if(!$scope.power) {
-				$timeout.cancel($scope.timeout);
-			}			
 		};
 	}
 );
