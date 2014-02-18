@@ -1,0 +1,54 @@
+{
+  "A":[
+    {"bottom":"16%", "left":"10%"},
+    {"bottom":"16%", "left":"20%"},
+    {"bottom":"16%", "left":"74%"},
+    {"bottom":"16%", "left":"84%"},
+
+    {"bottom":"22%", "left":"13%"},
+    {"bottom":"22%", "left":"23%"},
+    {"bottom":"22%", "left":"71%"},
+    {"bottom":"22%", "left":"81%"},
+
+    {"bottom":"27%", "left":"16%"},
+    {"bottom":"27%", "left":"26%"},
+    {"bottom":"27%", "left":"37%"},
+    {"bottom":"27%", "left":"47%"}, 
+    {"bottom":"27%", "left":"58%"},
+    {"bottom":"27%", "left":"68%"},
+    {"bottom":"27%", "left":"78%"},
+
+    {"bottom":"33%", "left":"19%"},
+    {"bottom":"33%", "left":"29%"},
+    {"bottom":"33%", "left":"38%"},
+    {"bottom":"33%", "left":"47%"}, 
+    {"bottom":"33%", "left":"56%"}, 
+    {"bottom":"33%", "left":"65%"},
+    {"bottom":"33%", "left":"75%"},
+
+    {"bottom":"39%", "left":"22%"},
+    {"bottom":"39%", "left":"32%"},
+    {"bottom":"39%", "left":"62%"},
+    {"bottom":"39%", "left":"72%"},
+
+    {"bottom":"45%", "left":"25%"},
+    {"bottom":"45%", "left":"35%"},
+    {"bottom":"45%", "left":"59%"},
+    {"bottom":"45%", "left":"69%"},
+
+    {"bottom":"49%", "left":"25%"},
+    {"bottom":"49%", "left":"35%"},
+    {"bottom":"49%", "left":"59%"},
+    {"bottom":"49%", "left":"69%"}
+  ],
+  "B":[
+    {"bottom":"70%", "left":"41%"}  
+  ],
+  "N":[
+    {"bottom":"16%", "left":"5%"},
+    {"bottom":"16%", "left":"17%"},
+    {"bottom":"16%", "left":"29%"}
+  ],
+  "D":[],
+  "Y":[]
+}
