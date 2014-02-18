@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('casino.filters').
-	factory('Random', function() {
+	filter('random', function() {
 		return function(lights, frame) {
 
 			//throttle this filter to operate every 10 frames
