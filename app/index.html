@@ -42,15 +42,15 @@
        ga('send', 'pageview');
     </script-->
 
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-
     <!-- build:js scripts/plugins.js -->
     <!--script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script-->
     <!-- endbuild -->
 
     <!-- build:js scripts/modules.js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -59,7 +59,9 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/services/fontService.js"></script>
     <script src="scripts/controllers/casino.js"></script>
+    <script src="scripts/filters/config.js"></script>
     <script src="scripts/filters/vertical.js"></script>
     <script src="scripts/filters/random.js"></script>
     <!-- endbuild -->
