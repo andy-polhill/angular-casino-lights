@@ -1,6 +1,6 @@
 #Casino Lights
 
-I figured I should have a play around with (AngularJS)[http://angularjs.org]. 
+I figured I should have a play around with [AngularJS](http://angularjs.org). 
 So I set myself the task of creating some casino style lights. The actual inspiration
 being the (Brighton Pier sign)[] in my hometown.
 
@@ -11,10 +11,7 @@ It's my first attempt at using Angular and on the whole I quite like it. I'm sur
 
 A live demo is up and running on my (thatguynamedandy)[http://thatguynamedandy.com] 
 
-
 ##TODO:
--Google Analytics
-MVP
 -Unit Tests
 -CI
 -Horizontal filter
