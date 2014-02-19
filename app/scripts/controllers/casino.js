@@ -50,6 +50,6 @@ angular.module('casino').
 		fontService.fetch(font, $scope.word, function(lights) {
 			$scope.lights = lights;
 			$scope.start();
-		})
+		});
 	}
 );
