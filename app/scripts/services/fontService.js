@@ -3,7 +3,7 @@
 angular.module('casino.services').
   service('fontService', function($q, $http, _) {
 
-    this._fetch = function(font, word, callback) {
+    this.fetch = function(font, word, callback) {
 
       var deferred = $q.defer();
 
@@ -21,22 +21,41 @@ angular.module('casino.services').
         });
       });
 
-      return deferred.promise;
-    };
-
-
-    this.fetch = function(font, word, callback) {
-      //Fetch the font data (you could/should cache the response)
-      var promise = this._fetch.apply(this, arguments);
-
-      promise
+      deferred.promise
         .then(this.parse)
+        .then(this.flatten)
+        .then(this.setHighest)
+        .then(this.setLowest)
         .then(callback);
     };
 
+    //create a flat version of the data
+    this.flatten = function(data) {
+      data.flat = _.flatten(_.values(data.all), true);
+      return data;
+    };
+
+    //find the highest light and keep a record
+    this.setLowest = function(data) {
+      var lowest = _.min(data.flat, function(data){
+        return parseInt(data.pos.bottom, 10);
+      });
+
+      data.lowest = parseInt(lowest.pos.bottom, 10);
+      return data;
+    };
+
+    //find the highest light and keep a record
+    this.setHighest = function(data) {
+      var highest = _.max(data.flat, function(data){
+        return parseInt(data.pos.bottom, 10);
+      });
+
+      data.highest = parseInt(highest.pos.bottom, 10);
+      return data;
+    };
+
     //transform the data into a more suitable format
-    //and create meta data for the filters
-    //a bit on the heavy side so only do it once
     this.parse = function(data) {
 
       var fontData = {all:[]};
@@ -47,9 +66,6 @@ angular.module('casino.services').
           fontData.all[letter].push({'pos': light});
         }, this);
       }, this);
-
-      var values = _.values(fontData.all);
-      fontData.flat = _.flatten(values, true);
 
       return fontData;
     };
