@@ -2,7 +2,7 @@
 	<h1 class="neon">
 		<span ng-repeat="letter in word track by $index" data-content="{{letter}}">
 			{{letter}}
-			<i ng-repeat="light in lights[letter]" class="light" ng-class="light.power" ng-style="light.pos">
+			<i ng-repeat="light in lights.all[letter]" class="light" ng-class="light.power" ng-style="light.pos">
 			</i>
 		</span>
 	</h1>
