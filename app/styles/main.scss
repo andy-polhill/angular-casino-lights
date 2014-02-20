@@ -5,14 +5,16 @@ $icon-font-path: "/bower_components/bootstrap-sass/fonts/";
 $body-bg:#333;
 $text-color:#dec085;
 $text-border:#d78965;
+$light-border:lighten($body-bg, 15%);
+$light-bg:lighten($body-bg, 10%);
 $header-font-size:160px;
 $light-size:$header-font-size * 0.05;
 
 $border-radius-small:10px;
 $border-radius-xs-small:7px;
 
-$panel-bg:lighten($body-bg, 10%);
-$panel-default-border:lighten($body-bg, 15%);
+$panel-bg:$light-bg;
+$panel-default-border:$light-border;
 
 $text-shadow-1:darken($text-border, 30%);
 $text-shadow-2:darken($text-border, 40%);
@@ -34,6 +36,29 @@ button:focus, input:focus {
 }
 
 /* End Bootstrap Ovverrides */
+
+/* Page styling */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 30px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  padding:5px 0;
+  background-color: $light-bg;
+  border-top:solid 1px $light-border;
+}
+
+/* End Page styling */
 
 /* Controls */
 
