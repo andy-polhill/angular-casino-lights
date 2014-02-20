@@ -264,6 +264,10 @@ module.exports = function (grunt) {
           src: [
             'generated/*'
           ]
+        }, {
+          //Shrinkwrap for AppFog distribution
+          src: ['npm-shrinkwrap.json'],
+          dest: '<%= yeoman.dist %>/npm-shrinkwrap.json'
         }]
       },
       styles: {
