@@ -13,7 +13,7 @@ angular.module('casino').
 
 		$scope.speed = {
 			min: 10,
-			max: 30,
+			max: 60,
 			current: 10
 		};
 
