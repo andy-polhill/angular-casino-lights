@@ -9,4 +9,4 @@ app.get("/", function(request, response){ //root dir
   response.render('index.html');
 });
 
-server.listen(9000);
+server.listen(80);
