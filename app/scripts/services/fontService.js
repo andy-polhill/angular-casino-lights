@@ -58,7 +58,7 @@ angular.module('casino.services').
     //transform the data into a more suitable format
     this.parse = function(data) {
 
-      var fontData = {all:[]};
+      var fontData = {all:{}};
 
       _.each(data.word, function(letter) {
         fontData.all[letter] = [];
