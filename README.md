@@ -1,17 +1,39 @@
 #Casino Lights
 
-I figured I should have a play around with [AngularJS](http://angularjs.org).
-So I set myself the task of creating some casino style lights.
+*10/02/2015*
+I am currently in the process of migrating this component into an Angular directive.
+It is currently in pre-release state.
 
-Ideally I wanted to avoid the use of any images, which helps the effect to be scaled
-up to different font sizes. So it's all CSS3 and JavaScript.
 
-It's my first attempt at using Angular and on the whole I quite like it. I'm sure there are a few anti patterns here, so feel free to pick holes in it and let me know.
+Flashing "casino" style lights implemented in Angular.
 
-A live demo is up and running on [thatguynamedandy](http://thatguynamedandy.com)
+Check out the examples [thatguynamedandy.github.com/angular-casino-lights](http://thatguynamedandy.github.com/angular-casino-lights)
 
-##TODO:
-- Unit Tests
-- CI
-- Horizontal filter
-- Mixed filter
+##Installation
+
+Installation via [Bower](http://bower.io)
+
+`bower install angular-casino-lights`
+
+You will need angular as a dependency, so if you don't have it already.
+
+`bower install angular`
+
+##Usage
+
+Load the script into the page
+
+`<script src="bower_components/angular-casino-lights/dist/angular-casino-lights.min.js"></script>`
+
+Add the directive to the element which you would like to give a bit of spice.
+
+`<h1 casino-lights></h1>`
+
+
+##Font setup
+
+The biggest caveat with using this directive is that you either have to use the [Raleway](http://google.com/fonts) font.
+
+Or manually map the light positions yourself. It is
+
+##API
