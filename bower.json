@@ -1,7 +1,7 @@
 {
   "name": "angular-casino-lights",
   "main": "./dist/angular-casino-lights.js",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha",
   "description": "Flashing casino lights with varying filters",
   "keywords": [
     "Angular",
@@ -15,11 +15,13 @@
   "license": "MIT",
   "homepage": "http://thatguynamedandy.github/angular-casino-lights",
   "ignore": [
-    "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    ".gitignore",
+    ".jshintrc",
+    ".editorconfig",
+    ".gulpfile"
   ],
   "dependencies": {
     "angular": "~1.3.12"
