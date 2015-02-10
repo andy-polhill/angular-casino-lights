@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('casino-lights')
-.directive('casino-lights', ['$timeout', '$q', '$filter', 'casino.font-service',
+.directive('casinoLights', ['$timeout', '$q', '$filter', 'casino.font-service',
     function($timeout, $q, $filter, fontService) {
 
   var text; //original dom node text
