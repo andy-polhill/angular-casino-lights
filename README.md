@@ -1,8 +1,10 @@
 #Casino Lights
 
-*10/02/2015*
+*
+**10/02/2015**
 I am currently in the process of migrating this component into an Angular directive.
-It is currently in pre-release state.
+It is currently in alpha state.
+*
 
 
 Flashing "casino" style lights implemented in Angular.
@@ -32,8 +34,10 @@ Add the directive to the element which you would like to give a bit of spice.
 
 ##Font setup
 
-The biggest caveat with using this directive is that you either have to use the [Raleway](http://google.com/fonts) font.
+The biggest caveat with using this directive is that you either have to use the [Raleway](http://www.google.com/fonts/specimen/Raleway) font.
 
-Or manually map the light positions yourself. It is
+Or manually map the light positions yourself. I'm pretty sure it's impossible to
+automate the position of the lights within the letters, so it's a case of creating
+a data file of all the light locations
 
 ##API
