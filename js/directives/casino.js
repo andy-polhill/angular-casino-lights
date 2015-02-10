@@ -66,7 +66,7 @@ angular.module('casino-lights')
       '<span ng-repeat="letter in word track by $index" data-content="{{letter.char}}">',
         '{{letter.char}}',
         '<i ng-repeat="light in letter.lights" class="light" ng-class="{on:light.power}"',
-        '    style="left:{{light.left}};bottom:{{light.bottom}}">',
+        '    style="left:{{light.left}}%;bottom:{{light.bottom}}%">',
         '</i>',
       '</span>'
     ].join('');

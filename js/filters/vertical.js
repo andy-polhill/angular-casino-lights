@@ -13,10 +13,10 @@ angular.module('casino-lights').
 
       angular.forEach(word, function(letter) {
         angular.forEach(letter.lights, function(light) {
-          if(isUp && parseInt(light.bottom, 10) < upFrame) {
+          if(isUp && light.bottom < upFrame) {
             light.power = true;
           }
-          if(!isUp && parseInt(light.bottom, 10) > downFrame) {
+          if(!isUp && light.bottom > downFrame) {
             light.power = false;
           }
         }, this);
