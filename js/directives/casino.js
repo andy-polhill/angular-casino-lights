@@ -31,6 +31,7 @@ angular.module('casino-lights')
 			  max: 200,
         current: 100
 		  },
+      power: true,
       filter: 'vertical'
     }, scope.config);
 
@@ -45,7 +46,7 @@ angular.module('casino-lights')
       });
     });
 
-    scope.$watch('config.on', function(newValue, oldValue) {
+    scope.$watch('config.power', function(newValue, oldValue) {
       if(newValue === true && oldValue === false) { //from off to on
         start();
       }
