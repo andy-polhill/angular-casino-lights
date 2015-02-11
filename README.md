@@ -48,6 +48,7 @@ Additional config can be altered via an attribute, check the usage examples and 
 Turns the lights on and off, meaning the lights can be controlled outside of the directive
 
 #### `speed`: Integer
+*Default:* **80**.
 This is the time in milliseconds between animation frames, a shorter speed means a quicker frame rate.
 
 #### `filter`: String
@@ -56,6 +57,12 @@ The current filter cycle for the lights. [Current options](js/filters) are
 - Letter
 - Vertical
 - Random
+
+#### `dataPath`: String
+*Default:* **bower_components/angular-casino-lights/data/**.
+By default the directive will look for font data that is already loaded onto the page.
+If it doesn't find any it will attempt to load the data asynchronously. If you need to
+provide a custom location do so with this variable
 
 
 ##Font setup
@@ -68,9 +75,14 @@ get you up and running.
 If you do end up using this, please send/pull request any data that you create.
 
 ##TODO before alpha complete
+- Tidy up and document embedding font data
+- Provide usage examples
+- Provide skeleton css/scss
 - Map Raleway font
 
 
 ##TODO at some stage
+- Unit test (confess to not doing TDD on this)
+- CI Travis
 - Reset all lights when filter changes
 - Provide a list of available filters
