@@ -4,8 +4,6 @@ angular.module('casino-lights')
 .directive('casinoLights', ['$timeout', '$q', '$filter', 'casino.font-service',
     function($timeout, $q, $filter, fontService) {
 
-  var text; //original dom node text
-
   //TODO: Refactor link method as it's slightly large
   function link(scope, element) {
 
@@ -15,13 +13,13 @@ angular.module('casino-lights')
     }
 
     function start() {
-      if(scope.config.on) {
+      if(scope.config.power) {
         scope.animatePromise = $timeout(animate,
           (scope.config.speed.max + scope.config.speed.min) - scope.config.speed.current);
       }
     }
 
-    var letters = text.split(''),
+    var letters = scope.text,
         font = window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].toLowerCase(), //sorry
         frame = 0;
 
@@ -31,8 +29,8 @@ angular.module('casino-lights')
 			  max: 200,
         current: 100
 		  },
-      power: true,
-      filter: 'vertical'
+      filter: 'vertical',
+      power: true
     }, scope.config);
 
     scope.word = []; //primary data structure for lights
@@ -61,8 +59,6 @@ angular.module('casino-lights')
 
   function template(elem){
 
-    text = elem.text();
-
     return [
       '<span ng-repeat="letter in word track by $index" data-content="{{letter.char}}">',
         '{{letter.char}}',
@@ -76,7 +72,8 @@ angular.module('casino-lights')
   return {
     restrict: 'A',
     scope: {
-      config: '='
+      text: '@',
+      config: '=?'
     },
     link: link,
     template: template
