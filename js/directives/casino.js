@@ -14,8 +14,7 @@ angular.module('casino-lights')
 
     function start() {
       if(scope.config.power) {
-        scope.animatePromise = $timeout(animate,
-          (scope.config.speed.max + scope.config.speed.min) - scope.config.speed.current);
+        scope.animatePromise = $timeout(animate, scope.config.speed);
       }
     }
 
@@ -24,12 +23,8 @@ angular.module('casino-lights')
         frame = 0;
 
     scope.config = angular.extend({
-      speed : {
-	      min: 50,
-			  max: 200,
-        current: 100
-		  },
-      filter: 'vertical',
+      speed: 80,
+      filter: 'random',
       power: true
     }, scope.config);
 
@@ -58,7 +53,6 @@ angular.module('casino-lights')
   }
 
   function template(elem){
-
     return [
       '<span ng-repeat="letter in word track by $index" data-content="{{letter.char}}">',
         '{{letter.char}}',

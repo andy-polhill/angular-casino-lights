@@ -1,15 +1,11 @@
 #Casino Lights
 
-*
-**10/02/2015**
-I am currently in the process of migrating this component into an Angular directive.
-It is currently in alpha state.
-*
 
+**10/02/2015**
+*I am currently in the process of migrating this component into an Angular directive.
+It is currently in alpha state.*
 
 Flashing "casino" style lights implemented in Angular.
-
-Check out the examples [thatguynamedandy.github.com/angular-casino-lights](http://thatguynamedandy.github.com/angular-casino-lights)
 
 ##Installation
 
@@ -51,14 +47,8 @@ Additional config can be altered via an attribute, check the usage examples and 
 *Default*: **true**.
 Turns the lights on and off, meaning the lights can be controlled outside of the directive
 
-#### `speed`: Object
-Provides the maximum, minimum and current speeds of the light cycle.
-
-    speed : {
-        min: 50,
-        max: 200,
-        current: 100
-    }
+#### `speed`: Integer
+This is the time in milliseconds between animation frames, a shorter speed means a quicker frame rate.
 
 #### `filter`: String
 *Default:* **random**.
@@ -77,9 +67,10 @@ get you up and running.
 
 If you do end up using this, please send/pull request any data that you create.
 
+##TODO before alpha complete
+- Map Raleway font
 
 
-##TODO
--Improve the speed, currently the min value truly controls the speed
--Reset all lights when filter changes
--Provide a list of available filters
+##TODO at some stage
+- Reset all lights when filter changes
+- Provide a list of available filters
