@@ -18,20 +18,21 @@ angular.module('casino-lights')
       }
     }
 
-    var letters = scope.text,
-        font = window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].toLowerCase(), //sorry
-        frame = 0;
+    var frame = 0;
 
     scope.config = angular.extend({
       speed: 100,
       filter: 'random',
-      power: true
+      power: true,
+      letters: scope.text,
+      dataPath: 'app/bower_components/angular-casino-lights/js/data/',
+      font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].toLowerCase(), //sorry
     }, scope.config);
 
     scope.word = []; //primary data structure for lights
 
-    fontService.fetch(font, letters, function(lights) {
-      return angular.forEach(letters, function(char) {
+    fontService.fetch(scope.config, function(lights) {
+      return angular.forEach(scope.config.letters, function(char) {
         scope.word.push({
           char: char,
           lights: lights[char]
