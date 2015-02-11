@@ -1,0 +1,39 @@
+h1 {
+  font-family: 'Bitter';
+  font-size: 20px; }
+
+/* Casino Styling */
+.light {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  border: solid 1px #ECDBB9;
+  background-color: transparent;
+  box-shadow: 1px 0px 1px 0px rgba(129, 107, 63, 0.3), inset 1px 1px 2px rgba(112, 106, 75, 0.3), inset -1px -1px 1px white; }
+
+.light.on {
+  background-color: #FCF8D2;
+  box-shadow: 3px 0px 10px 3px rgba(255, 235, 194, 0.18), -3px 0px 10px 3px rgba(255, 235, 194, 0.18), 0px 3px 10px 3px rgba(255, 235, 194, 0.18), 0px -3px 10px 3px rgba(255, 235, 194, 0.18), 6px 0px 10px 6px rgba(255, 235, 194, 0.1), -6px 0px 10px 6px rgba(255, 235, 194, 0.1), 0px 6px 10px 6px rgba(255, 235, 194, 0.1), 0px -6px 10px 6px rgba(255, 235, 194, 0.1); }
+
+h1 {
+  font-size: 160px;
+  font-family: 'Bitter', serif;
+  position: relative;
+  display: inline-block;
+  color: #dec085;
+  background: transparent;
+  z-index: 0; }
+  h1 span {
+    display: inline-block;
+    position: relative;
+    padding: 0 3px; }
+  h1 span:before {
+    content: attr(data-content);
+    position: absolute;
+    padding: 0 3px;
+    left: 0;
+    z-index: -1;
+    text-shadow: 1px 1px 0px #d78965, -1px -1px 0px #d78965, -1px 1px 0px #d78965, 1px -1px 0px #d78965, 2px 2px 0px #d78965, -2px -2px 0px #d78965, 2px -2px 0px #d78965, -2px 2px 0px #d78965, 3px 3px 0px #d78965, -3px -3px 0px #d78965, -3px 3px 0px #d78965, 3px -3px 0px #d78965, 5px -1px 1px #814022, 5px 2px 1px #814022, 5px 4px 1px #814022, 5px 6px 1px #814022, -2px 6px 1px #814022, 6px 0px 1px #592c17, 6px 3px 1px #592c17, 6px 5px 1px #592c17, 6px 7px 1px #592c17, -2px 7px 1px #592c17, -3px 8px 5px black, 7px 8px 5px black; }
+
+/* End Casino Styling */

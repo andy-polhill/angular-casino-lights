@@ -1,0 +1,47 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Angular casino lights</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+  <body ng-app="casino-demo">
+
+    <section id="main">
+      <article ng-controller="CasinoDemo">
+        {{config.speed.current}}
+        <input name="speed" ng-model="config.speed" type="range" min="20" max="200" />
+        <input name="power" ng-model="config.power" type="checkbox" />
+        <select name="animation" ng-model="config.filter">
+          <option value="random">Random</option>
+          <option value="vertical">Bottom to top</option>
+          <option value="letter">Letter by letter</option>
+        </select>
+        <h1 data-casino-lights text="CASINO" config="config">CASINO</h1>
+
+        <h1 data-casino-lights text="BOOM">BOOM</h1>
+      </article>
+    </section>
+
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-casino-lights/js/casino-lights.js"></script>
+    <script src="bower_components/angular-casino-lights/js/directives/casino.js"></script>
+    <script src="bower_components/angular-casino-lights/js/services/font-service.js"></script>
+    <script src="bower_components/angular-casino-lights/js/filters/config.js"></script>
+    <script src="bower_components/angular-casino-lights/js/filters/random.js"></script>
+    <script src="bower_components/angular-casino-lights/js/filters/letters.js"></script>
+    <script src="bower_components/angular-casino-lights/js/filters/vertical.js"></script>
+    <script src="scripts/main.js"></script>
+
+
+</body>
+</html>
