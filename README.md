@@ -27,17 +27,59 @@ Load the script into the page
 
 `<script src="bower_components/angular-casino-lights/dist/angular-casino-lights.min.js"></script>`
 
-Add the directive to the element which you would like to give a bit of spice.
+Load google Raleway font, to use your own font read the Font setup section.
 
-`<h1 casino-lights></h1>`
+`<link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>`
+
+Add the directive to the element which you would like to give a bit of casino action.
+
+`<h1 casino-lights text="CASINO">CASINO</h1>`
+
+*Due to a limitation in Angular you will also need to provide an attribute of 'text'
+which provides a duplicate of the text that you would like to use. I am looking
+for a way round this*
+
+Additional config can be altered via an attribute, check the usage examples and API docs.
+
+`<h1 casino-lights config="config" text="CASINO">CASINO</h1>`
+
+##API
+
+## config
+
+#### `power`: Boolean
+*Default*: **true**.
+Turns the lights on and off, meaning the lights can be controlled outside of the directive
+
+#### `speed`: Object
+Provides the maximum, minimum and current speeds of the light cycle.
+
+    speed : {
+        min: 50,
+        max: 200,
+        current: 100
+    }
+
+#### `filter`: String
+*Default:* **random**.
+The current filter cycle for the lights. [Current options](js/filters) are
+- Letter
+- Vertical
+- Random
 
 
 ##Font setup
 
-The biggest caveat with using this directive is that you either have to use the [Raleway](http://www.google.com/fonts/specimen/Raleway) font.
+The biggest caveat with using this directive is that you will need to map the light positions yourself.
+I've mapped a few in the [Raleway](http://www.google.com/fonts/specimen/Raleway) font,
+and I will endeavour to map the whole font in the near future. So feel free to use that to
+get you up and running.
 
-Or manually map the light positions yourself. I'm pretty sure it's impossible to
-automate the position of the lights within the letters, so it's a case of creating
-a data file of all the light locations
+If you do end up using this, please send/pull request any data that you create.
 
-##API
+
+
+##TODO
+-Improve the speed, currently the min value truly controls the speed
+-Reset all lights when filter changes
+-Provide a list of available filters
