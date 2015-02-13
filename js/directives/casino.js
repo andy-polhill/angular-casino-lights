@@ -4,7 +4,6 @@ angular.module('casino-lights')
 .directive('casinoLights', ['$timeout', '$q', '$filter', 'casino.font-service',
     function($timeout, $q, $filter, fontService) {
 
-  //TODO: Refactor link method as it's slightly large
   function link(scope, element) {
 
     function animate() {
@@ -18,6 +17,16 @@ angular.module('casino-lights')
       }
     }
 
+    function stop() {
+      frame = 0;
+      $timeout.cancel(scope.animatePromise);
+      angular.forEach(scope.word, function(letter) {
+        angular.forEach(letter.lights, function(light) {
+          light.power = false;
+        }, this);
+      });
+    }
+
     var frame = 0;
 
     scope.config = angular.extend({
@@ -25,7 +34,7 @@ angular.module('casino-lights')
       filter: 'random',
       power: true,
       letters: scope.text,
-      dataPath: 'bower_components/angular-casino-lights/data/',
+      dataPath: 'app/bower_components/angular-casino-lights/js/data/',
       font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].toLowerCase(), //sorry
     }, scope.config);
 
@@ -40,21 +49,27 @@ angular.module('casino-lights')
       });
     });
 
-    scope.$watch('config.power', function(newValue, oldValue) {
-      if(newValue === true && oldValue === false) { //from off to on
+    scope.$watch('config.filter', function() {
+      if(scope.animatePromise) {
+        stop();
+      }
+      start();
+    });
+
+    scope.$watch('config.power', function(isOn, wasOn) {
+      if(isOn && !wasOn) {
         start();
+      } else if (!isOn && wasOn) {
+        stop();
       }
     });
 
     element.on('$destroy', function() {
       $timeout.cancel(scope.animatePromise);
     });
-
-    start();
   }
 
-  function template(elem){
-
+  function template(){
     return [
       '<span ng-repeat="letter in word track by $index" data-content="{{letter.char}}">',
         '{{letter.char}}',
