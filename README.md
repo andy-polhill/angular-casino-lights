@@ -13,10 +13,6 @@ Installation via [Bower](http://bower.io)
 
 `bower install angular-casino-lights`
 
-You will need angular as a dependency, so if you don't have it already.
-
-`bower install angular`
-
 ##Usage
 
 Load the script into the page
@@ -37,15 +33,11 @@ to control font/light size etc. The css in this module is mainly for guidance.
 
 Add the directive to the element which you would like to give a bit of casino action.
 
-`<h1 casino-lights text="CASINO">CASINO</h1>`
-
-*Due to a limitation in Angular you will also need to provide an attribute of 'text'
-which provides a duplicate of the text that you would like to use. I am looking
-for a way round this*
+`<h1 casino-lights>CASINO</h1>`
 
 Additional config can be altered via an attribute, check the usage examples and API docs.
 
-`<h1 casino-lights config="config" text="CASINO">CASINO</h1>`
+`<h1 casino-lights config="config">CASINO</h1>`
 
 ##API
 
@@ -86,10 +78,9 @@ get you up and running.
 If you do end up using this, please send/pull request any data that you create.
 
 ##TODO before alpha complete
-- Stupid text attribute
+- Determine browser coverage
 - Tidy up and document embedding font data
-- Provide usage examples
-- Provide skeleton css/scss
+- Complete usage examples
 - Map Raleway font
 
 

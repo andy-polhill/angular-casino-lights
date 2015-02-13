@@ -4,7 +4,7 @@ angular.module('casino-lights')
 .directive('casinoLights', ['$timeout', '$q', '$filter', 'casino.font-service',
     function($timeout, $q, $filter, fontService) {
 
-  function link(scope, element) {
+  function link(scope, element, attrs, ctrl, transclude) {
 
     function animate() {
       $filter(scope.config.filter)(scope.word, frame++);
@@ -33,7 +33,7 @@ angular.module('casino-lights')
       speed: 100,
       filter: 'random',
       power: true,
-      letters: scope.text,
+      letters: transclude().text(),
       dataPath: 'app/bower_components/angular-casino-lights/js/data/',
       font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].toLowerCase(), //sorry
     }, scope.config);
@@ -87,6 +87,7 @@ angular.module('casino-lights')
       config: '=?'
     },
     link: link,
+    transclude: true,
     template: template
   };
 }]);
