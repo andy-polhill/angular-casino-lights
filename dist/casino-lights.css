@@ -1,0 +1,19 @@
+h1 {
+  font-family: "Raleway";
+  font-size: 110px;
+  font-weight: bold; }
+  h1 span {
+    position: relative;
+    display: inline-block;
+    line-height: 77px; }
+    h1 span .light {
+      transform: translate(-50%, 50%);
+      position: absolute;
+      background-color: rgba(140, 140, 140, 0.5);
+      height: 9px;
+      width: 9px;
+      border-radius: 50%;
+      border: solid 1px #ECDBB9; }
+    h1 span .light.on {
+      background-color: #FCF8D2;
+      box-shadow: 3px 0px 10px 3px rgba(255, 235, 194, 0.18), -3px 0px 10px 3px rgba(255, 235, 194, 0.18), 0px 3px 10px 3px rgba(255, 235, 194, 0.18), 0px -3px 10px 3px rgba(255, 235, 194, 0.18), 6px 0px 10px 6px rgba(255, 235, 194, 0.1), -6px 0px 10px 6px rgba(255, 235, 194, 0.1), 0px 6px 10px 6px rgba(255, 235, 194, 0.1), 0px -6px 10px 6px rgba(255, 235, 194, 0.1); }
