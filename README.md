@@ -1,11 +1,11 @@
 #Casino Lights
 
-
-**10/02/2015**
-*I am currently in the process of migrating this component into an Angular directive.
-It is currently in alpha state.*
+**13/02/2015**
+*Currently in alpha state, use at your peril*
 
 Flashing "casino" style lights implemented in Angular.
+
+See it in action http://thatguynamedandy.github.com/angular-casino-lights
 
 ##Installation
 
@@ -27,6 +27,14 @@ Load google Raleway font, to use your own font read the Font setup section.
 
 `<link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>`
 
+If using SASS include the provided scss file into your workflow, overriding any neccessary properties
+
+    $header-font-size:110px !default;
+    @import '../bower_components/angular-casino-lights/scss/_casino-lights.scss';
+
+If using CSS load the provided, css directly into your page. You will need to manually override any styles
+to control font/light size etc. The css in this module is mainly for guidance.
+
 Add the directive to the element which you would like to give a bit of casino action.
 
 `<h1 casino-lights text="CASINO">CASINO</h1>`
@@ -47,9 +55,11 @@ Additional config can be altered via an attribute, check the usage examples and 
 *Default*: **true**.
 Turns the lights on and off, meaning the lights can be controlled outside of the directive
 
+
 #### `speed`: Integer
 *Default:* **80**.
 This is the time in milliseconds between animation frames, a shorter speed means a quicker frame rate.
+
 
 #### `filter`: String
 *Default:* **random**.
@@ -57,6 +67,7 @@ The current filter cycle for the lights. [Current options](js/filters) are
 - Letter
 - Vertical
 - Random
+
 
 #### `dataPath`: String
 *Default:* **bower_components/angular-casino-lights/data/**.
@@ -75,6 +86,7 @@ get you up and running.
 If you do end up using this, please send/pull request any data that you create.
 
 ##TODO before alpha complete
+- Stupid text attribute
 - Tidy up and document embedding font data
 - Provide usage examples
 - Provide skeleton css/scss
