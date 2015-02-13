@@ -4,7 +4,6 @@ angular.module('casino-lights')
 .directive('casinoLights', ['$timeout', '$q', '$filter', 'casino.font-service',
     function($timeout, $q, $filter, fontService) {
 
-  //TODO: Refactor link method as it's slightly large
   function link(scope, element) {
 
     function animate() {
@@ -16,6 +15,16 @@ angular.module('casino-lights')
       if(scope.config.power) {
         scope.animatePromise = $timeout(animate, scope.config.speed);
       }
+    }
+
+    function stop() {
+      frame = 0;
+      $timeout.cancel(scope.animatePromise);
+      angular.forEach(scope.word, function(letter) {
+        angular.forEach(letter.lights, function(light) {
+          light.power = false;
+        }, this);
+      });
     }
 
     var frame = 0;
@@ -35,26 +44,32 @@ angular.module('casino-lights')
       return angular.forEach(scope.config.letters, function(char) {
         scope.word.push({
           char: char,
-          lights: lights[char]
+          lights: angular.copy(lights[char])
         });
       });
     });
 
-    scope.$watch('config.power', function(newValue, oldValue) {
-      if(newValue === true && oldValue === false) { //from off to on
+    scope.$watch('config.filter', function() {
+      if(scope.animatePromise) {
+        stop();
+      }
+      start();
+    });
+
+    scope.$watch('config.power', function(isOn, wasOn) {
+      if(isOn && !wasOn) {
         start();
+      } else if (!isOn && wasOn) {
+        stop();
       }
     });
 
     element.on('$destroy', function() {
       $timeout.cancel(scope.animatePromise);
     });
-
-    start();
   }
 
-  function template(elem){
-
+  function template(){
     return [
       '<span ng-repeat="letter in word track by $index" data-content="{{letter.char}}">',
         '{{letter.char}}',

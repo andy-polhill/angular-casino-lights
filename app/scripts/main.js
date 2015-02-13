@@ -17,7 +17,8 @@ angular.module('casino-demo', [
   scope.tab = 'output';
 }])
 .controller('CasinoDemoWinner', ['$scope', function(scope) {
-  scope.config = {
+  //FIXME - unique scopes
+  scope.config2 = {
     speed: 20,
     power: false,
     dataPath: 'app/bower_components/angular-casino-lights/js/data/'
@@ -27,9 +28,9 @@ angular.module('casino-demo', [
 
   scope.$watch('code', function(newValue, oldValue) {
     if(newValue.toLowerCase() === 'andy') {
-      scope.config.power = true;
+      scope.config2.power = true;
     } else {
-      scope.config.power = false;
+      scope.config2.power = false;
     }
   });
 
