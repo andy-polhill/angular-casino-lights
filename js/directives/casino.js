@@ -44,7 +44,7 @@ angular.module('casino-lights')
       return angular.forEach(scope.config.letters, function(char) {
         scope.word.push({
           char: char,
-          lights: lights[char]
+          lights: angular.copy(lights[char])
         });
       });
     });
