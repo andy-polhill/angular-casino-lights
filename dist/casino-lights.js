@@ -6,7 +6,7 @@ angular.module('casino-lights')
 .directive('casinoLights', ['$timeout', '$q', '$filter', 'casino.font-service',
     function($timeout, $q, $filter, fontService) {
 
-  function link(scope, element) {
+  function link(scope, element, attrs, ctrl, transclude) {
 
     function animate() {
       $filter(scope.config.filter)(scope.word, frame++);
@@ -35,9 +35,9 @@ angular.module('casino-lights')
       speed: 100,
       filter: 'random',
       power: true,
-      letters: scope.text,
+      letters: transclude().text(),
       dataPath: 'app/bower_components/angular-casino-lights/js/data/',
-      font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].toLowerCase(), //sorry
+      font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].replace(/"/g, '').toLowerCase(), //sorry
     }, scope.config);
 
     scope.word = []; //primary data structure for lights
@@ -46,7 +46,7 @@ angular.module('casino-lights')
       return angular.forEach(scope.config.letters, function(char) {
         scope.word.push({
           char: char,
-          lights: lights[char]
+          lights: angular.copy(lights[char])
         });
       });
     });
@@ -76,7 +76,7 @@ angular.module('casino-lights')
       '<span ng-repeat="letter in word track by $index" data-content="{{letter.char}}">',
         '{{letter.char}}',
         '<i ng-repeat="light in letter.lights" class="light" ng-class="{on:light.power}"',
-        '    style="left:{{light.left}}%;bottom:{{light.bottom}}%">',
+        '    ng-style="{\'left\':light.left + \'%\', \'bottom\':light.bottom + \'%\'}">',
         '</i>',
       '</span>'
     ].join('');
@@ -89,33 +89,8 @@ angular.module('casino-lights')
       config: '=?'
     },
     link: link,
+    transclude: true,
     template: template
-  };
-}]);
-
-'use strict';
-
-angular.module('casino-lights')
-.service('casino.font-service', ['$q', '$http', '$injector', '$log', function($q, $http, $injector, $log) {
-
-  this.fetch = function(config, callback) {
-    try {
-      return callback($injector.get('casino.' + config.font));
-    } catch(e) {
-
-      $log.info('Asyncronously Loading data for ' + config.font + ': Recommended that you bootstrap data into page');
-
-      $http({
-        method: 'GET',
-        url: config.dataPath + config.font + '.json',
-        cache: true
-      })
-      .success(callback)
-      .error(function() {
-        throw 'Font data not found for font:' + config.font +
-            ',\nPlease check data file exists: http://github.com/thatguynamedandy/angular-casino-lights';
-      });
-    }
   };
 }]);
 
@@ -208,3 +183,29 @@ angular.module('casino-lights').
     };
   }
 );
+
+'use strict';
+
+angular.module('casino-lights')
+.service('casino.font-service', ['$q', '$http', '$injector', '$log', function($q, $http, $injector, $log) {
+
+  this.fetch = function(config, callback) {
+    try {
+      return callback($injector.get('casino.' + config.font));
+    } catch(e) {
+
+      $log.info('Asyncronously Loading data for ' + config.font + ': Recommended that you bootstrap data into page');
+
+      $http({
+        method: 'GET',
+        url: config.dataPath + config.font + '.json',
+        cache: true
+      })
+      .success(callback)
+      .error(function() {
+        throw 'Font data not found for font:' + config.font +
+            ',\nPlease check data file exists: http://github.com/thatguynamedandy/angular-casino-lights';
+      });
+    }
+  };
+}]);

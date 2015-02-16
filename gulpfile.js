@@ -11,12 +11,12 @@ var del = require('del');
 var destination = 'dist/';
 
 var paths = {
-  sass: ['scss/*.scss'],
+  sass: ['scss/***.scss'],
   scripts: ['js/**/*.js']
 };
 
 gulp.task('jshint', function() {
-  return gulp.src('js/**/*.js')
+  return gulp.src(paths.scripts)
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'));
 });
@@ -27,6 +27,10 @@ gulp.task('clean', function (cb) {
 
 gulp.task('styles', function () {
   gulp.src(paths.sass)
+    .pipe(gulp.dest(destination));
+
+  gulp.src(paths.sass)
+    .pipe(gulp.dest(destination))
     .pipe(sass())
     .pipe(concat('casino-lights.css'))
     .pipe(gulp.dest(destination));
