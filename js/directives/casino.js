@@ -34,7 +34,6 @@ angular.module('casino-lights')
       filter: 'random',
       power: true,
       letters: transclude().text(),
-      dataPath: 'app/bower_components/angular-casino-lights/js/data/',
       font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].replace(/"/g, '').toLowerCase(), //sorry
     }, scope.config);
 

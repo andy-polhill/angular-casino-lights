@@ -64,14 +64,6 @@ The current filter cycle for the lights. [Current options](js/filters) are
 - Vertical
 - Random
 
-
-#### `dataPath`: String
-*Default:* **bower_components/angular-casino-lights/data/**.
-By default the directive will look for font data that is already loaded onto the page.
-If it doesn't find any it will attempt to load the data asynchronously. If you need to
-provide a custom location do so with this variable
-
-
 ##Font setup
 
 The biggest caveat with using this directive is that you will need to map the light positions yourself.
