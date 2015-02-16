@@ -83,7 +83,6 @@ If you do end up using this, please send/pull request any data that you create.
 
 ##TODO before alpha complete
 - Determine browser coverage
-  - Firefox not working
   - Safari light alignment
 - Complete usage examples
 - Map Raleway font
