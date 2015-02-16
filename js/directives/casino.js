@@ -35,7 +35,7 @@ angular.module('casino-lights')
       power: true,
       letters: transclude().text(),
       dataPath: 'app/bower_components/angular-casino-lights/js/data/',
-      font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].toLowerCase(), //sorry
+      font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].replace(/"/g, '').toLowerCase(), //sorry
     }, scope.config);
 
     scope.word = []; //primary data structure for lights
