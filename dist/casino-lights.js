@@ -36,7 +36,6 @@ angular.module('casino-lights')
       filter: 'random',
       power: true,
       letters: transclude().text(),
-      dataPath: 'app/bower_components/angular-casino-lights/js/data/',
       font: window.getComputedStyle(element[0]).getPropertyValue('font-family').split(',')[0].replace(/"/g, '').toLowerCase(), //sorry
     }, scope.config);
 
@@ -97,7 +96,7 @@ angular.module('casino-lights')
 'use strict';
 
 angular.module('casino-lights').
-  config(function($filterProvider, $provide) {
+  config(['$filterProvider', '$provide', function($filterProvider, $provide) {
     // keep the original register fucntion
     var registerFn = $filterProvider.register,
         allFilters = [];
@@ -113,7 +112,7 @@ angular.module('casino-lights').
     // register a value to retrieve the filters
     $provide.value('filters', allFilters);
   }
-);
+]);
 
 'use strict';
 
@@ -187,25 +186,14 @@ angular.module('casino-lights').
 'use strict';
 
 angular.module('casino-lights')
-.service('casino.font-service', ['$q', '$http', '$injector', '$log', function($q, $http, $injector, $log) {
+.service('casino.font-service', ['$q', '$injector', function($q, $injector) {
 
   this.fetch = function(config, callback) {
     try {
       return callback($injector.get('casino.' + config.font));
     } catch(e) {
-
-      $log.info('Asyncronously Loading data for ' + config.font + ': Recommended that you bootstrap data into page');
-
-      $http({
-        method: 'GET',
-        url: config.dataPath + config.font + '.json',
-        cache: true
-      })
-      .success(callback)
-      .error(function() {
-        throw 'Font data not found for font:' + config.font +
-            ',\nPlease check data file exists: http://github.com/thatguynamedandy/angular-casino-lights';
-      });
+      throw 'Font data not found for font:' + config.font +
+          ',\nPlease check data file exists: http://github.com/thatguynamedandy/angular-casino-lights';
     }
   };
 }]);

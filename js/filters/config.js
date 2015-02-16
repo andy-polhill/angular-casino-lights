@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('casino-lights').
-  config(function($filterProvider, $provide) {
+  config(['$filterProvider', '$provide', function($filterProvider, $provide) {
     // keep the original register fucntion
     var registerFn = $filterProvider.register,
         allFilters = [];
@@ -17,4 +17,4 @@ angular.module('casino-lights').
     // register a value to retrieve the filters
     $provide.value('filters', allFilters);
   }
-);
+]);
