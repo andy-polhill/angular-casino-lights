@@ -79,7 +79,6 @@ angular.module('casino-lights')
       '</span>'
     ].join('');
   }
-  }
 
   return {
     restrict: 'A',
