@@ -12,7 +12,7 @@ var destination = 'dist/';
 
 var paths = {
   sass: ['scss/***.scss'],
-  scripts: ['js/**/*.js']
+  scripts: ['js/**/*.js', 'fonts/casino-raleway.js']
 };
 
 gulp.task('jshint', function() {
