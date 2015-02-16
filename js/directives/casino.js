@@ -69,7 +69,7 @@ angular.module('casino-lights')
     });
   }
 
-  function template(element){
+  function template(){
     return [
       '<span ng-repeat="letter in word track by $index" data-content="{{letter.char}}">',
         '{{letter.char}}',
