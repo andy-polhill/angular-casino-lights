@@ -19,6 +19,10 @@ Load the script into the page
 
 `<script src="bower_components/angular-casino-lights/dist/angular-casino-lights.min.js"></script>`
 
+Load the data script for the font that you are going to use (currently Raleway is the only supported font)
+
+`<script src="bower_components/angular-casino-lights/dist/fonts/casino-raleway.min.js"></script>`
+
 Load google Raleway font, to use your own font read the Font setup section.
 
 `<link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>`
@@ -41,7 +45,7 @@ Additional config can be altered via an attribute, check the usage examples and 
 
 ##API
 
-## config
+The following config options are available
 
 #### `power`: Boolean
 *Default*: **true**.
@@ -79,7 +83,8 @@ If you do end up using this, please send/pull request any data that you create.
 
 ##TODO before alpha complete
 - Determine browser coverage
-- Tidy up and document embedding font data
+  - Firefox not working
+  - Safari light alignment
 - Complete usage examples
 - Map Raleway font
 
