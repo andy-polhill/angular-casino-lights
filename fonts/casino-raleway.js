@@ -93,4 +93,4 @@ angular.module('casino-lights')
     "Y":[],
     "Z":[]
   }
-});
+);
