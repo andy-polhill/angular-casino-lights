@@ -10,194 +10,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Casino style lights implemented in AngularJS, multiple light effects">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="app/styles/main.css">
 </head>
-  <body ng-app="casino-demo">
-    <main class="container" id="main">
-      <div class="col-md-10 col-md-offset-1">
 
-        <article ng-controller="CasinoDemoControl" class="row panel panel-default">
-          <div class="panel-heading">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'output'" ng-class="{active:tab == 'output'}">
-                Output
-              </button>
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'html'" ng-class="{active:tab == 'html'}">
-                HTML
-              </button>
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'script'" ng-class="{active:tab == 'script'}">
-                Javascript
-              </button>
-            </div>
-          </div>
-          <div class="panel-body">
+<body ng-app="casino-demo">
+  <main class="container" id="main">
+    <div class="col-md-10 col-md-offset-1">
 
-            <div ng-show="tab == 'output'">
-              <h1 data-casino-lights text="CASINO">CASINO</h1>
-            </div>
+      <article ng-controller="CasinoDemoControl" class="row panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title">Basic usage</h2>
+        </div>
+        <div class="panel-body">
+          <a class="jsbin-embed" href="http://jsbin.com/gebowo/6/embed?output">JS Bin</a>
+        </div>
+      </article>
 
-            <div ng-show="tab == 'html'">
-            </div>
+      <article ng-controller="CasinoDemoControl" class="row panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title">Form control</h2>
+        </div>
+        <div class="panel-body">
+          <a class="jsbin-embed" href="http://jsbin.com/qelawe/8/embed?output">JS Bin</a>
+        </div>
+      </article>
 
-            <div ng-show="tab == 'script'">
-              <pre>
-  angular.module('casino-demo', [
-    'casino-lights'
-  ]).controller('CasinoDemo');</pre>
-            </div>
-
-          </div>
-        </article><!--End CasinoDemo-->
-
-        <article ng-controller="CasinoDemoControl" class="row panel panel-default">
-          <div class="panel-heading">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'output'" ng-class="{active:tab == 'output'}">
-                Output
-              </button>
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'html'" ng-class="{active:tab == 'html'}">
-                HTML
-              </button>
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'script'" ng-class="{active:tab == 'script'}">
-                Javascript
-              </button>
-            </div>
-          </div>
-          <div class="panel-body">
-
-            <div class="row" ng-show="tab == 'output'">
-              <div class="col-sm-4">
-                <form>
-                  <div class="form-group">
-                    <label for="speed">Speed</label>
-                    <input id="speed" name="speed" ng-model="config.speed" type="range" min="20" max="200" />
-                  </div>
-                  <div class="form-group">
-                    <label for="filter">Filter</label>
-                    <select class="form-control" id="filter" name="animation" ng-model="config.filter">
-                      <option value="random">Random</option>
-                      <option value="vertical">Bottom to top</option>
-                      <option value="letter">Letter by letter</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-default btn-primary" ng-class="{active: config.power}"
-                        ng-click="config.power = !config.power">Power</button>
-                  </div>
-                </form>
-              </div>
-              <div class="col-sm-8">
-                <h1 data-casino-lights text="CASINO" config="config">CASINO</h1>
-              </div>
-            </div>
-
-            <div ng-show="tab == 'html'">
-            </div>
-
-            <div ng-show="tab == 'script'">
-              <pre>
-  angular.module('casino-demo', [
-    'casino-lights'
-  ]).controller('CasinoDemo', ['$scope', function($scope) {
-    $scope.config = {
-      speed: 100,
-      filter: 'letter',
-      power: true,
-      dataPath: 'app/bower_components/angular-casino-lights/js/data/'
-    }
-  }]);</pre>
-            </div>
-
-          </div>
-        </article><!--End CasinoDemoControl-->
-
-        <article ng-controller="CasinoDemoWinner" class="row panel panel-default">
-          <div class="panel-heading">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'output'" ng-class="{active:tab == 'output'}">
-                Output
-              </button>
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'html'" ng-class="{active:tab == 'html'}">
-                HTML
-              </button>
-              <button type="button" class="btn btn-default"
-                  ng-click="tab = 'script'" ng-class="{active:tab == 'script'}">
-                Javascript
-              </button>
-            </div>
-          </div>
-          <div class="panel-body">
-
-            <div class="row" ng-show="tab == 'output'">
-              <div class="col-sm-4">
-                <form>
-                  <div class="form-group">
-                    <label for="code">
-                      Enter your name
-                    </label>
-                    <p class="text-muted">Hint: Pretend it's 'Andy'</p>
-                    <input class="form-control" id="code" name="code" ng-model="code" type="text" />
-                  </div>
-                </form>
-              </div>
-              <div class="col-sm-8">
-                <h1 data-casino-lights text="CASINO" config="config2">CASINO</h1>
-              </div>
-            </div>
-
-            <div ng-show="tab == 'html'">
-            </div>
-
-            <div ng-show="tab == 'script'">
-              <pre>
-  .controller('CasinoDemoWinner', ['$scope', function(scope) {
-    scope.config = {
-      speed: 20,
-      power: false
-    };
-
-    scope.code ='';
-
-    scope.$watch('code', function(newValue, oldValue) {
-      if(newValue.toLowerCase() === 'andy') {
-        scope.config.power = true;
-      } else {
-        scope.config.power = false;
-      }
-    });
-  }]);
-</pre>
-
-            </div>
-
-          </div>
-        </article><!--End CasinoDemoWinner-->
-      </div>
-    </main>
-
-
+      <article ng-controller="CasinoDemoControl" class="row panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title">Form control</h2>
+        </div>
+        <div class="panel-body">
+          <a class="jsbin-embed" href="http://jsbin.com/napibu/4/embed?output">JS Bin</a>
+        </div>
+      </article>
     </div>
+  </main>
 
-    <script src="app/bower_components/angular/angular.js"></script>
-    <script src="app/bower_components/angular-casino-lights/js/casino-lights.js"></script>
-    <script src="app/bower_components/angular-casino-lights/js/directives/casino.js"></script>
-    <script src="app/bower_components/angular-casino-lights/js/services/font-service.js"></script>
-    <script src="app/bower_components/angular-casino-lights/js/filters/config.js"></script>
-    <script src="app/bower_components/angular-casino-lights/js/filters/random.js"></script>
-    <script src="app/bower_components/angular-casino-lights/js/filters/letters.js"></script>
-    <script src="app/bower_components/angular-casino-lights/js/filters/vertical.js"></script>
-    <script src="app/scripts/main.js"></script>
-
+  <script src="http://static.jsbin.com/js/embed.js"></script>
 
 </body>
 </html>
