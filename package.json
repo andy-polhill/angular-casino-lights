@@ -1,0 +1,39 @@
+{
+  "name": "angular-casino-lights",
+  "version": "0.0.0",
+  "description": "Flashing casino lights with varying filters",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "angular-mocks": "~1.3.13",
+    "del": "~1.1.1",
+    "gulp": "~3.8.10",
+    "gulp-concat": "~2.4.3",
+    "gulp-jshint": "~1.9.2",
+    "gulp-rename": "~1.2.0",
+    "gulp-sass": "~1.3.3",
+    "gulp-uglify": "~1.1.0",
+    "jasmine": "~2.2.1",
+    "jasmine-core": "~2.2.0",
+    "karma": "~0.12.31",
+    "karma-jasmine": "~0.3.5",
+    "karma-chrome-launcher": "~0.1.7",
+    "angular": "~1.3.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thatguynamedandy/casino.git"
+  },
+  "author": "Andrew Polhill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thatguynamedandy/casino/issues"
+  },
+  "homepage": "https://github.com/thatguynamedandy/casino"
+}
