@@ -1,5 +1,7 @@
 #Casino Lights
 
+[![Build Status](https://travis-ci.org/thatguynamedandy/angular-casino-lights.svg?branch=master)](https://travis-ci.org/thatguynamedandy/angular-casino-lights)
+
 **13/02/2015**
 *Currently in alpha state, use at your peril*
 
@@ -70,9 +72,7 @@ get you up and running.
 If you do end up using this, please send/pull request any data that you create.
 
 ##TODO before alpha complete
-- Determine browser coverage
-  - Safari light alignment
-- Complete usage examples
+- Config being overwritten
 - Map Raleway font
 
 
