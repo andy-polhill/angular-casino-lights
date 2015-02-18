@@ -186,10 +186,10 @@ angular.module('casino-lights').
 
       angular.forEach(word, function(letter) {
         angular.forEach(letter.lights, function(light) {
-          if(isUp && light.bottom < upFrame) {
+          if(isUp && light.y < upFrame) {
             light.power = true;
           }
-          if(!isUp && light.bottom > downFrame) {
+          if(!isUp && light.y > downFrame) {
             light.power = false;
           }
         }, this);
