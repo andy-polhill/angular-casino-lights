@@ -1,7 +1,7 @@
 {
   "name": "angular-casino-lights",
-  "main": "./dist/angular-casino-lights.js",
-  "version": "0.0.0-alpha",
+  "main": "./dist/casino-lights.min.js",
+  "version": "0.0.0",
   "description": "Flashing casino lights with varying filters",
   "keywords": [
     "Angular",
