@@ -17,6 +17,7 @@ h1 {
 
     .light {
       transform: translate(-50%, 50%);
+      -webkit-transform: translate(-50%, 50%);
       position:absolute;
       background-color:rgba(140, 140, 140, 0.50);
       height:round($light-size);
