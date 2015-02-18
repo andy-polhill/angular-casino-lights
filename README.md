@@ -2,9 +2,6 @@
 
 [![Build Status](https://travis-ci.org/thatguynamedandy/angular-casino-lights.svg?branch=master)](https://travis-ci.org/thatguynamedandy/angular-casino-lights)
 
-**13/02/2015**
-*Currently in alpha state, use at your peril*
-
 Flashing "casino" style lights implemented in Angular.
 
 See it in action http://thatguynamedandy.github.com/angular-casino-lights
@@ -64,20 +61,24 @@ The current filter cycle for the lights. [Current options](js/filters) are
 
 ##Font setup
 
-The biggest caveat with using this directive is that you will need to map the light positions yourself.
-I've mapped a few in the [Raleway](http://www.google.com/fonts/specimen/Raleway) font,
-and I will endeavour to map the whole font in the near future. So feel free to use that to
-get you up and running.
+The biggest caveat with using this directive is that it is currently restricted
+to the [Raleway](http://www.google.com/fonts/specimen/Raleway) font.
 
-If you do end up using this, please send/pull request any data that you create.
+I don't think it's currently possible to programmatically determine the light positions.
+So if you want to use another font you will have to manually map your own light positions.
+This is a bit time consuming, but not the end of the world if you only need to map a couple
+of words.
 
-##TODO before alpha complete
-- Config being overwritten
-- Map Raleway font
+Have a look at [the data file for Raleway](fonts/casino-raleway.js) to get an idea of what is required.
+You may also need to edit the scss to deal with the additional spacing at the top and bottom of a font.
+(If people start using this I may eventually provide a CSS file per font)
+Once you have marked out your light locations, simply include the JavaScript file,
+ensure that your CSS has the correct font-family set and the directive will do the rest for you.
 
+If you need help, or have any success mapping other fonts let me know. Pull requests
+would also be welcomed.
 
-##TODO at some stage
-- Unit test (confess to not doing TDD on this)
-- CI Travis
-- Reset all lights when filter changes
+##TODO
+- Increase test coverage
 - Provide a list of available filters
+- Map alternative fonts
