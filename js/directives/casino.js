@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('casino-lights')
+angular.module('casino-lights', [])
 .directive('casinoLights', ['$timeout', '$q', '$filter', 'casino.font-service',
     function($timeout, $q, $filter, fontService) {
 
@@ -39,7 +39,8 @@ angular.module('casino-lights')
 
     scope.word = []; //primary data structure for lights
 
-    fontService.fetch(scope.config, function(lights) {
+    fontService.fetch(scope.config.font, function(lights) {
+      //FIXME: I'm hard to test
       return angular.forEach(scope.config.letters, function(char) {
         scope.word.push({
           char: char,

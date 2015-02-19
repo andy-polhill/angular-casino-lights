@@ -3,11 +3,11 @@
 angular.module('casino-lights')
 .service('casino.font-service', ['$q', '$injector', function($q, $injector) {
 
-  this.fetch = function(config, callback) {
+  this.fetch = function(font, callback) {
     try {
-      return callback($injector.get('casino.' + config.font));
+      return callback($injector.get('casino.' + font));
     } catch(e) {
-      throw 'Font data not found for font:' + config.font +
+      throw 'Font data not found for font:' + font +
           ',\nPlease check data file exists: http://github.com/thatguynamedandy/angular-casino-lights';
     }
   };
