@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('casino-lights')
-.service('casino.font-service', ['$q', '$injector', function($q, $injector) {
+.service('fontService', ['$q', '$injector', function($q, $injector) {
 
   this.fetch = function(font, callback) {
     try {

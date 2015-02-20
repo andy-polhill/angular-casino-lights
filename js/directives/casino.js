@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('casino-lights', [])
-.directive('casinoLights', ['$timeout', '$q', '$filter', 'casino.font-service',
+.directive('casinoLights', ['$timeout', '$q', '$filter', 'fontService',
     function($timeout, $q, $filter, fontService) {
 
   function link(scope, element, attrs, ctrl, transclude) {
