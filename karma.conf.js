@@ -18,7 +18,7 @@ module.exports = function(config) {
       'dist/casino-lights.css',
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'js/directives/casino.js',
+      'js/**/*.js',
       'test/**/*.spec.js'
     ],
 
@@ -64,7 +64,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'], //Chrome
+    browsers: ['PhantomJS'], //Chrome
 
 
     // Continuous Integration mode
