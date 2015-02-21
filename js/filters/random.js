@@ -6,7 +6,7 @@ angular.module('casino-lights').
 
       //throttle filter
 	    if(frame % 8 !== 0) {
-				return;
+				return false;
 			}
 
       angular.forEach(word, function(letter) {
