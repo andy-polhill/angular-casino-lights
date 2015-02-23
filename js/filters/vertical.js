@@ -13,14 +13,16 @@ angular.module('casino-lights').
 
       angular.forEach(word, function(letter) {
         angular.forEach(letter.lights, function(light) {
-          if(isUp && light.y < upFrame) {
+          if(isUp && light.y <= upFrame) {
             light.power = true;
           }
-          if(!isUp && light.y > downFrame) {
+          if(!isUp && light.y >= downFrame) {
             light.power = false;
           }
         }, this);
       }, this);
+
+      return true
     };
   }
 );

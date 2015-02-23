@@ -14,6 +14,8 @@ angular.module('casino-lights').
           light.power = (Math.random() > 0.5) ? true : false;
         }, this);
       }, this);
+
+			return true;
 		};
 	}
 );

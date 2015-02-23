@@ -16,6 +16,8 @@ angular.module('casino-lights').
       angular.forEach(prev.lights, function(light) {
         light.power = false;
       }, this);
+
+      return true;
     };
   }
 );
