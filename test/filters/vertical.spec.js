@@ -13,7 +13,7 @@ describe('Vertical filter', function() {
 
   beforeEach(function() {
     step = 3;
-    downstepOffset = 100 / step;
+    downstepOffset = Math.ceil(100 / step);
     word = [{
       char: 'I',
       lights: [
@@ -46,14 +46,20 @@ describe('Vertical filter', function() {
       expect(word[0].lights[2].power).toEqual(true);
     });
 
-    xit('should decrease the amount of powered lights from top to bottom when top is reached', function() {
+    it('should decrease the amount of powered lights from top to bottom when top is reached', function() {
       verticalFilter(word, Math.ceil(100 / step));
       expect(word[0].lights[0].power).toEqual(true);
       expect(word[0].lights[1].power).toEqual(true);
       expect(word[0].lights[2].power).toEqual(true);
       verticalFilter(word, downstepOffset + Math.floor(word[0].lights[1].y / step));
+      //console.log(downstepOffset + Math.floor(word[0].lights[1].y / step));
       expect(word[0].lights[0].power).toEqual(true);
       expect(word[0].lights[1].power).toEqual(true);
+      expect(word[0].lights[2].power).toEqual(false);
+      verticalFilter(word, downstepOffset + Math.floor(word[0].lights[2].y / step));
+      //console.log(downstepOffset + Math.floor(word[0].lights[2].y / step));
+      expect(word[0].lights[0].power).toEqual(true);
+      expect(word[0].lights[1].power).toEqual(false);
       expect(word[0].lights[2].power).toEqual(false);
     })
 
